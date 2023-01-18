@@ -1,0 +1,17 @@
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.BLL.deps.json
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.BLL.dll
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.BLL.pdb
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.Model.dll
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.Repository.dll
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.Model.pdb
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\bin\Debug\net7.0\TOnboardEMS.Repository.pdb
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.csproj.AssemblyReference.cache
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.AssemblyInfoInputs.cache
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.AssemblyInfo.cs
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.csproj.CopyComplete
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.dll
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\refint\TOnboardEMS.BLL.dll
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\TOnboardEMS.BLL.pdb
+C:\Users\Shuaib Feroze\source\repos\TOnboardEMS\TOnboardEMS.BLL\obj\Debug\net7.0\ref\TOnboardEMS.BLL.dll

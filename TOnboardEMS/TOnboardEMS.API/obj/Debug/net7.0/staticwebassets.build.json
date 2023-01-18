@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "FKljzuW+S0ZPzzkwZ5jmSSJPDjWKYICtTYBrLIrEVqU=",
+  "Source": "TOnboardEMS.API",
+  "BasePath": "_content/TOnboardEMS.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
