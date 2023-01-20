@@ -3240,11 +3240,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.API\\TOnboardEMS.API.csproj",
+      "projectUniqueName": "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.API\\TOnboardEMS.API.csproj",
       "projectName": "TOnboardEMS.API",
-      "projectPath": "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.API\\TOnboardEMS.API.csproj",
+      "projectPath": "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.API\\TOnboardEMS.API.csproj",
       "packagesPath": "C:\\Users\\Shuaib Feroze\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.API\\obj\\",
+      "outputPath": "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3265,11 +3265,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.BLL\\TOnboardEMS.BLL.csproj": {
-              "projectPath": "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.BLL\\TOnboardEMS.BLL.csproj"
+            "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.BLL\\TOnboardEMS.BLL.csproj": {
+              "projectPath": "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.BLL\\TOnboardEMS.BLL.csproj"
             },
-            "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.Repository\\TOnboardEMS.Repository.csproj": {
-              "projectPath": "C:\\Users\\Shuaib Feroze\\source\\repos\\TOnboardEMS\\TOnboardEMS.Repository\\TOnboardEMS.Repository.csproj"
+            "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.Repository\\TOnboardEMS.Repository.csproj": {
+              "projectPath": "C:\\Users\\Shuaib Feroze\\Documents\\GitHub\\TestOnboardEMS\\TOnboardEMS\\TOnboardEMS.Repository\\TOnboardEMS.Repository.csproj"
             }
           }
         }
