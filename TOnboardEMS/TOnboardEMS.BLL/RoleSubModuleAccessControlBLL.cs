@@ -70,5 +70,15 @@ namespace TOnboardEMS.BLL
             }
 
         }
+
+        public IEnumerable<RoleSubModuleAccessControl> GetRoleSubModuleAccessControlByEmployeeId(int Id)
+        {
+            using (var uow = new UnitOfWork(Context))
+            {
+                RoleSubModuleAccessControlRepository repository = uow.GetRepository<RoleSubModuleAccessControlRepository>();
+                IEnumerable<RoleSubModuleAccessControl> ListOfRoleSubModuleAccessControls = repository.Query(u => u.RoleId == Id);
+                return ListOfRoleSubModuleAccessControls;
+            }
+        }
     }
 }

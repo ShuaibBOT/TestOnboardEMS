@@ -8,25 +8,23 @@ using TOnboardEMS.BLL;
 using TOnboardEMS.Model;
 using TOnboardEMS.Repository;
 
-namespace TOnboardEMS.API
+namespace TOnboardEMS.API.Controllers
 {
+    //Controller is responsible for adding roles.
     [Route("api/[controller]")]
     [ApiController]
-    public class AccessController : ControllerBase
+    public class RoleController : ControllerBase
     {
-        private readonly OnboardContext Context;
+        private readonly OnboardContext _Context;
 
-        public AccessController(OnboardContext context)
-        {
-            Context = context;
-        }
+        public RoleController(OnboardContext context) => _Context = context;
 
-        
+
         [HttpGet("GetAllRoles")]
         public ActionResult GetAllRoles()
         {
-            Debug.WriteLine("Shuaib DB Connect:"+Context.Database.GetDbConnection().ConnectionString);
-            RoleBLL RoleLogic = new RoleBLL(Context);
+            Debug.WriteLine("Shuaib DB Connect:" + _Context.Database.GetDbConnection().ConnectionString);
+            RoleBLL RoleLogic = new RoleBLL(_Context);
             var results = RoleLogic.ViewAllRoles();
             if (results == null)
             {
@@ -43,7 +41,7 @@ namespace TOnboardEMS.API
         [HttpGet("GetRole/{id}")]
         public ActionResult GetRole(int id)
         {
-            RoleBLL roleLogic = new RoleBLL(Context);
+            RoleBLL roleLogic = new RoleBLL(_Context);
             var roledata = roleLogic.ViewRoleById(id);
             if (roledata == null)
             {
@@ -58,7 +56,7 @@ namespace TOnboardEMS.API
         [HttpPost("AddNewRole")]
         public ActionResult AddNewRole(Role roleData)
         {
-            RoleBLL RoleLogic = new RoleBLL(Context);
+            RoleBLL RoleLogic = new RoleBLL(_Context);
             if (roleData == null)
             {
                 return BadRequest("Bad Request");
@@ -74,12 +72,12 @@ namespace TOnboardEMS.API
         [HttpPut("UpdateRole")]
         public ActionResult UpdateRole(Role roleData)
         {
-            RoleBLL RoleLogic = new RoleBLL(Context);
+            RoleBLL RoleLogic = new RoleBLL(_Context);
             if (roleData == null)
             {
                 return BadRequest("Bad Request");
             }
-            else 
+            else
             {
                 RoleLogic.UpdateRoleDetails(roleData);
                 return Ok("Updated Successfully");
@@ -89,7 +87,7 @@ namespace TOnboardEMS.API
         [HttpDelete("DeleteRole")]
         public ActionResult DeleteRole(Role roleData)
         {
-            RoleBLL RoleLogic = new RoleBLL(Context);
+            RoleBLL RoleLogic = new RoleBLL(_Context);
             if (roleData == null)
             {
                 return BadRequest("Bad Request");
@@ -104,12 +102,13 @@ namespace TOnboardEMS.API
         [HttpDelete("DeleteRole/{id}")]
         public ActionResult DeleteRole(int id)
         {
-            RoleBLL RoleLogic = new RoleBLL(Context);
+            RoleBLL RoleLogic = new RoleBLL(_Context);
             try
             {
                 RoleLogic.RemoveRoleById(id);
                 return Ok("Successfully deleted");
-            }catch 
+            }
+            catch
             {
                 return Content("Could not delete");
             }

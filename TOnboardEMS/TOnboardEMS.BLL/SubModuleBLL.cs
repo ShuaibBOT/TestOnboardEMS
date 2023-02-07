@@ -24,7 +24,7 @@ namespace TOnboardEMS.BLL
             }
         }
 
-        public SubModule ViewRoleById(int Id)
+        public SubModule ViewSubModuleById(int Id)
         {
             using (var uow = new UnitOfWork(Context))
             {
@@ -32,7 +32,7 @@ namespace TOnboardEMS.BLL
             }
         }
 
-        public void AddRole(SubModule subModule)
+        public void AddSubModule(SubModule subModule)
         {
             using (var uow = new UnitOfWork(Context))
             {
@@ -42,7 +42,7 @@ namespace TOnboardEMS.BLL
             }
         }
 
-        public void UpdateRoleDetails(SubModule subModule)
+        public void UpdateSubModuleDetails(SubModule subModule)
         {
             using (var uow = new UnitOfWork(Context))
             {
@@ -51,7 +51,7 @@ namespace TOnboardEMS.BLL
             }
         }
 
-        public void RemoveRole(SubModule subModule)
+        public void RemoveSubModule(SubModule subModule)
         {
             using (var uow = new UnitOfWork(Context))
             {
@@ -60,7 +60,7 @@ namespace TOnboardEMS.BLL
             }
         }
 
-        public void RemoveRoleById(int Id)
+        public void RemoveSubModuleById(int Id)
         {
             using (var uow = new UnitOfWork(Context))
             {
@@ -68,7 +68,6 @@ namespace TOnboardEMS.BLL
                 repository.Delete(repository.GetById(Id));
                 uow.Commit();
             }
-
         }
     }
 }

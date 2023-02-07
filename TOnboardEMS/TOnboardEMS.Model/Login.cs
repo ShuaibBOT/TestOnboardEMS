@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace TOnboardEMS.Model
 {
-    [Table("Module")]
-    public class Module
+    public class Login
     {
         [Key]
         public int Id { get; set; }
-        public String ModuleDescription { get; set; }
+        [ForeignKey("Employee")]
+        public int EmployeeId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TOnboardEMS.Repository.Interfaces;
@@ -40,6 +41,12 @@ namespace TOnboardEMS.Repository
         public void Update(T entity)
         {
             Context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public IEnumerable<T> Query(Expression<Func<T, bool>> predicate) 
+        { 
+             var results= Context.Set<T>().Where(predicate).ToList();
+            return results;
         }
     }
 }
