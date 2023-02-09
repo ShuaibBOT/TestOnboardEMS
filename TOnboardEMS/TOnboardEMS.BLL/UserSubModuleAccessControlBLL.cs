@@ -16,7 +16,7 @@ namespace TOnboardEMS.BLL
             Context = context;
         }
 
-        public IEnumerable<UserSubModuleAccessControl> ViewAllUserSubModuelAccessControls()
+        public IEnumerable<UserSubModuleAccessControl> ViewAllUserSubModuelAccessControl()
         {
             using (var uow = new UnitOfWork(Context))
             {
