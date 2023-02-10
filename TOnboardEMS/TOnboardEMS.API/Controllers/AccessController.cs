@@ -12,7 +12,7 @@ namespace TOnboardEMS.API.Controllers
     [ApiController]
     public class AccessController : ControllerBase
     {
-     
+
         private RoleModuleAccessControlBLL _roleModuleAccessControlBLL;
         private RoleSubModuleAccessControlBLL _roleSubModuleAccessControlBLL;
         private UserModuleAccessControlBLL _userModuleAccessControlBLL;
@@ -26,15 +26,15 @@ namespace TOnboardEMS.API.Controllers
 
         //Get 
         [HttpGet("GetAllRoleModuleAccessControl")]
-        public IActionResult GetAllRoleModuleAccessControl() 
+        public IActionResult GetAllRoleModuleAccessControl()
         {
-            var response=_roleModuleAccessControlBLL.ViewAllRoleModuleAccessControl();
+            var response = _roleModuleAccessControlBLL.ViewAllRoleModuleAccessControl();
             if (response == null)
             {
                 return NotFound();
             }
-            else 
-            { 
+            else
+            {
                 return Ok(response);
             }
         }
@@ -51,7 +51,7 @@ namespace TOnboardEMS.API.Controllers
                 return Ok(response);
             }
         }
-        [HttpGet("GetAllUserModuleAccessControl")]  
+        [HttpGet("GetAllUserModuleAccessControl")]
         public IActionResult GetAllUserModuleAccessControl()
         {
             var response = _userModuleAccessControlBLL.ViewAllUserModuleAccessControl();
@@ -80,15 +80,15 @@ namespace TOnboardEMS.API.Controllers
 
         //Post
         [HttpPost("AddRoleModuleAccessControl")]
-        public IActionResult AddRoleModuleAccessControl(RoleModuleAccessControl response) 
+        public IActionResult AddRoleModuleAccessControl(RoleModuleAccessControl response)
         {
             if (response != null)
             {
                 _roleModuleAccessControlBLL.AddRoleModuleAccessControl(response);
                 return Ok("Successfully added RoleModuleAccessControl");
             }
-            else 
-            { 
+            else
+            {
                 return BadRequest();
             }
         }
@@ -132,20 +132,20 @@ namespace TOnboardEMS.API.Controllers
             }
         }
         //PUT
-        [HttpPut]
-        public IActionResult UpdateRoleModuleAccessControl(RoleModuleAccessControl response) 
+        [HttpPut("UpdateRoleModuleAccessControl")]
+        public IActionResult UpdateRoleModuleAccessControl(RoleModuleAccessControl response)
         {
             if (response != null)
             {
                 _roleModuleAccessControlBLL.UpdateRoleModuleAccessControlDetails(response);
                 return Ok("Successfully Updated RoleModuleAccessControl");
             }
-            else 
-            { 
+            else
+            {
                 return BadRequest();
             }
         }
-        [HttpPut]
+        [HttpPut("UpdateRoleSubModuleAccessControl")]
         public IActionResult UpdateRoleSubModuleAccessControl(RoleSubModuleAccessControl response)
         {
             if (response != null)
@@ -158,7 +158,7 @@ namespace TOnboardEMS.API.Controllers
                 return BadRequest();
             }
         }
-        [HttpPut]
+        [HttpPut("UpdateUserSubModuleAccessControl")]
         public IActionResult UpdateUserSubModuleAccessControl(UserSubModuleAccessControl response)
         {
             if (response != null)
@@ -171,7 +171,85 @@ namespace TOnboardEMS.API.Controllers
                 return BadRequest();
             }
         }
+        [HttpPut("UpdateUserModuleAccessControl")]
+        public IActionResult UpdateUserModuleAccessControl(UserModuleAccessControl response)
+        {
+            if (response != null)
+            {
+                _userModuleAccessControlBLL.UpdateUserModuleAccessControlDetails(response);
+                return Ok("Successfully Updated UserModuleAccessControl");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
         //DELETE
+        [HttpDelete("DeleteRoleModuleAccessControl")]
+        public IActionResult DeleteRoleModuleAccessControl(RoleModuleAccessControl response)
+        {
+            if (response != null)
+            {
+                _roleModuleAccessControlBLL.RemoveRoleModuleAccessControl(response);
+                return Ok("Successfully Removed RoleModuleAccessControl from system");
+            }
+            else {
+                return BadRequest();
+            }
+        }
+        [HttpDelete("DeleteRoleSubModuleAccessControl")]
+        public IActionResult DeleteRoleSubModuleAccessControl(RoleSubModuleAccessControl response)
+        {
+            if (response != null)
+            {
+                _roleSubModuleAccessControlBLL.RemoveRoleSubModuleAccessControl(response);
+                return Ok("Successfully Removed RoleSubModuleAccessControl from system");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpDelete("DeleteUserModuleAccessControl")]
+        public IActionResult DeleteUserModuleAccessControl(UserModuleAccessControl response)
+        {
+            if (response != null)
+            {
+                _userModuleAccessControlBLL.RemoveUserModuleAccessControl(response);
+                return Ok("Successfully Removed UserModuleAccessControl from system");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpDelete("DeleteUserSubModuleAccessControl")]
+        public IActionResult DeleteUserSubModuleAccessControl(UserSubModuleAccessControl response)
+        {
+            if (response != null)
+            {
+                _userSubModuleAccessControlBLL.RemoveUserSubModuelAccessControl(response);
+                return Ok("Successfully Removed UserSubModuleAccessControl from system");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        //Get All SubModules per Module per User
+
+        [HttpGet("GetAllSubModulesPerModuleAndRole")]
+        public IActionResult GetAllSubModulesPerModuleAndRole(int roleId, int ModuleId)
+        { 
+              var response = _roleModuleAccessControlBLL.GetSubModulesByModulePerRole(roleId, ModuleId);
+                if (response != null) { 
+                    return Ok(response); }
+                else {  
+                    return BadRequest();
+                }
+        }
+
 
     }
 }

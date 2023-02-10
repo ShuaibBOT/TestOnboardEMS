@@ -48,5 +48,12 @@ namespace TOnboardEMS.Repository
              var results= Context.Set<T>().Where(predicate).ToList();
             return results;
         }
+
+        public T QueryFirstOrDefault(Expression<Func<T, bool>> predicate)
+        {
+            var results = Context.Set<T>().FirstOrDefault<T>(predicate);
+            return results;
+        }
+
     }
 }

@@ -23,5 +23,7 @@ namespace TOnboardEMS.Repository.Interfaces
         //Find 
         public IEnumerable<T> Query(Expression<Func<T, bool>> predicate);
 
+        public T QueryFirstOrDefault(Expression<Func<T, bool>> predicate);
+
     }
 }

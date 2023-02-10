@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TOnboardEMS.Model;
+using TOnboardEMS.Model.Response;
 using TOnboardEMS.Repository;
 
 namespace TOnboardEMS.BLL
@@ -66,6 +67,43 @@ namespace TOnboardEMS.BLL
                 RoleModuleAccessControlRepository repository = uow.GetRepository<RoleModuleAccessControlRepository>();
                 repository.Delete(repository.GetById(Id));
                 uow.Commit();
+            }
+        }
+
+        // Get All SubModules for a Modules per Role
+        public ResponseRoleSubModulePerModule GetSubModulesByModulePerRole(int roleId, int moduleId)
+        {
+            using (var uow = new UnitOfWork(Context)) 
+            { 
+                RoleSubModuleAccessControlRepository roleSubModuleAccessControlRepository = uow.GetRepository<RoleSubModuleAccessControlRepository>();
+                RoleModuleAccessControlRepository roleModuleAccessControlRepository = uow.GetRepository<RoleModuleAccessControlRepository>();
+                SubModuleRepository subModuleRepository = uow.GetRepository<SubModuleRepository>();
+
+                RoleModuleAccessControl userModuleAccessPool = roleModuleAccessControlRepository.QueryFirstOrDefault(e => e.RoleId == roleId && e.ModuleId == moduleId);
+                IEnumerable<SubModule> listofSubModules = subModuleRepository.Query(e => e.ModuleId == moduleId);
+                List<int> listofSubModulesId= new List<int>();
+                foreach (var subModule in listofSubModules)
+                {
+                    if (subModule.ModuleId == moduleId)
+                    {
+                        listofSubModulesId.Add(subModule.Id);
+                    }
+                }
+                IEnumerable<RoleSubModuleAccessControl> listOfSubModuleAccessControl = roleSubModuleAccessControlRepository.Query(e => e.RoleId == roleId && listofSubModulesId.Contains(e.SubModuleId));
+                List<ResponseSubModule> listofResponseSubModuleDetails = new List<ResponseSubModule>();
+                foreach (var subModules in listOfSubModuleAccessControl)
+                {
+                    ResponseSubModule responseSubModule = new ResponseSubModule();
+                    responseSubModule.SubModuleID = subModules.Id;
+                    responseSubModule.AccessRestrictions = subModules.AccessRestriction;
+                    listofResponseSubModuleDetails.Add(responseSubModule);
+                }
+                ResponseRoleSubModulePerModule response = new ResponseRoleSubModulePerModule(
+                    userModuleAccessPool.Id,
+                    userModuleAccessPool.AccessRestriction,
+                    listofResponseSubModuleDetails
+                    );
+                return response;
             }
         }
     }

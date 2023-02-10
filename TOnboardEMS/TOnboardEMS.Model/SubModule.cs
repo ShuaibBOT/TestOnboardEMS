@@ -13,6 +13,8 @@ namespace TOnboardEMS.Model
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("Module")]
+        public int ModuleId { get; set; }
         public String SubModuleDescription { get; set; }
     }
 }

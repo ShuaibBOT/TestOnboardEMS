@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TOnboardEMS.Model.DataTypes;
 
 namespace TOnboardEMS.Model
 {
@@ -17,6 +18,6 @@ namespace TOnboardEMS.Model
         public int RoleId { get; set; }
         [ForeignKey("Module")]
         public int ModuleId { get; set; }
-        public int AccessRestriction { get; set;}
+        public Restrictions AccessRestriction { get; set;}
     }
 }
