@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,10 +81,14 @@ namespace TOnboardEMS.BLL
                 SubModuleRepository subModuleRepository = uow.GetRepository<SubModuleRepository>();
 
                 RoleModuleAccessControl userModuleAccessPool = roleModuleAccessControlRepository.QueryFirstOrDefault(e => e.RoleId == roleId && e.ModuleId == moduleId);
+                Debug.WriteLine("Shuaib: userModuleAccessPool: " + userModuleAccessPool.ModuleId);
                 IEnumerable<SubModule> listofSubModules = subModuleRepository.Query(e => e.ModuleId == moduleId);
+                
                 List<int> listofSubModulesId= new List<int>();
                 foreach (var subModule in listofSubModules)
                 {
+                    Debug.WriteLine("Shuaib: listofSubModulesId: " + subModule.Id);
+                    Debug.WriteLine("Shuaib: ModuleIdSub " + subModule.ModuleId);
                     if (subModule.ModuleId == moduleId)
                     {
                         listofSubModulesId.Add(subModule.Id);
@@ -93,9 +98,12 @@ namespace TOnboardEMS.BLL
                 List<ResponseSubModule> listofResponseSubModuleDetails = new List<ResponseSubModule>();
                 foreach (var subModules in listOfSubModuleAccessControl)
                 {
+                    Debug.WriteLine("Shuaib: subModule " + subModules.Id);
                     ResponseSubModule responseSubModule = new ResponseSubModule();
                     responseSubModule.SubModuleID = subModules.Id;
                     responseSubModule.AccessRestrictions = subModules.AccessRestriction;
+                    Debug.WriteLine("Shuaib: responseSubModule :" + responseSubModule.SubModuleID);
+                    Debug.WriteLine("Shuaib: responseSubModule " + responseSubModule.AccessRestrictions);
                     listofResponseSubModuleDetails.Add(responseSubModule);
                 }
                 ResponseRoleSubModulePerModule response = new ResponseRoleSubModulePerModule(

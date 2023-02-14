@@ -11,7 +11,7 @@ namespace TOnboardEMS.Model.Response
     {
         public int parentID;
         public Restrictions parentRestrictions;
-        List<ResponseSubModule> ListOfSubModules;
+        public List<ResponseSubModule> ListOfSubModules;
 
         public ResponseRoleSubModulePerModule(int ParentID, Restrictions ParentRestrictions,List<ResponseSubModule> listOfSubModules)
         {

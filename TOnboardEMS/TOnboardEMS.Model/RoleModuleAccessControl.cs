@@ -9,7 +9,7 @@ using TOnboardEMS.Model.DataTypes;
 
 namespace TOnboardEMS.Model
 {
-    [Table("RoleModuleAcceaaControl")]
+    [Table("RoleModuleAccessControl")]
     public class RoleModuleAccessControl
     {
         [Key]

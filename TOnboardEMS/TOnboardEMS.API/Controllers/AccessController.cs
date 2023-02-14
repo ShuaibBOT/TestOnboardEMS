@@ -1,8 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Net;
+using System.Text;
 using TOnboardEMS.BLL;
 using TOnboardEMS.Model;
+using TOnboardEMS.Model.Request;
+using TOnboardEMS.Model.Response;
 using TOnboardEMS.Repository;
+using Nancy.Json;
 
 namespace TOnboardEMS.API.Controllers
 {
@@ -241,13 +248,22 @@ namespace TOnboardEMS.API.Controllers
 
         [HttpGet("GetAllSubModulesPerModuleAndRole")]
         public IActionResult GetAllSubModulesPerModuleAndRole(int roleId, int ModuleId)
-        { 
-              var response = _roleModuleAccessControlBLL.GetSubModulesByModulePerRole(roleId, ModuleId);
-                if (response != null) { 
-                    return Ok(response); }
-                else {  
-                    return BadRequest();
-                }
+        {
+            Debug.WriteLine("Shuaib: RoleId - " + roleId + " ModuleId - " + ModuleId);
+            var response = _roleModuleAccessControlBLL.GetSubModulesByModulePerRole(roleId,ModuleId);
+            Debug.WriteLine("Shuaib : Contents of Response: " + response);
+            Debug.WriteLine("Shuaib : Contents of Response: ParentID: " + response.parentID);
+            Debug.WriteLine("Shuaib : Contents of Response: ParentRestrictions: " + response.parentRestrictions);
+            Debug.WriteLine("Shuaib : Contents of Response: ListOfSubModules: " + response.ListOfSubModules[0].SubModuleID);
+            if (response != null) 
+            {
+                var json = new JavaScriptSerializer().Serialize(response);
+                return Ok(json); 
+            }
+            else 
+            {  
+                return BadRequest();
+            }
         }
 
 

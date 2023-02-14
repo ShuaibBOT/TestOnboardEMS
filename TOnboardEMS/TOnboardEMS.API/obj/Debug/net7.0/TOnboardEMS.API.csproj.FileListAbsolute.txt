@@ -140,3 +140,8 @@ C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.A
 C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\obj\Debug\net7.0\TOnboardEMS.API.csproj.CopyComplete
 C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\obj\Debug\net7.0\TOnboardEMS.API.genruntimeconfig.cache
 C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\obj\Debug\net7.0\ref\TOnboardEMS.API.dll
+C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\bin\Debug\net7.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\bin\Debug\net7.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\bin\Debug\net7.0\Nancy.dll
+C:\Users\Shuaib Feroze\Documents\GitHub\TestOnboardEMS\TOnboardEMS\TOnboardEMS.API\bin\Debug\net7.0\Newtonsoft.Json.dll
