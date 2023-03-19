@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TOnboardEMS.Model;
@@ -113,6 +114,70 @@ namespace TOnboardEMS.BLL
                     );
                 return response;
             }
+        }
+
+        public String UpdateSubModulesByModulePerRole(ResponseRoleSubModulePerModule requestBody, int roleId)
+        {
+            using (var uow = new UnitOfWork(Context))
+            {
+                // 1. Check if Parental Id is existing
+                var roleModuleAccessControlRepository =uow.GetRepository<RoleModuleAccessControlRepository>();
+                var moduleValue = roleModuleAccessControlRepository.QueryFirstOrDefault(x=> x.RoleId == roleId && x.ModuleId ==requestBody.parentID);
+                if (moduleValue == null)
+                {
+                    //Print Value does not exist (Module ) (return value)
+                    return ("Module Id is not found");
+                }
+
+                // 3. Take count of all Sub Modules belonging to that specific Module.
+                var subModuleRepository=uow.GetRepository<SubModuleRepository>();
+                var expectedSubModuleList = subModuleRepository.Query(x => x.ModuleId == requestBody.parentID);
+                int expectedSubModuleCount = expectedSubModuleList.Count();
+                // 4. Check if the actual sub module count is the same as the expected count
+                if (requestBody.ListOfSubModules.Count != expectedSubModuleCount)
+                {
+                    //Print Actual Count not the same as expected count (return Value)
+                    return ("Sub Module Count for this module is not the same as what is expected.");
+                }
+
+                // 5. Check if all submodule exist and belong to that module.
+                bool isSame = false;
+                isSame = expectedSubModuleList.Any(x => requestBody.ListOfSubModules.Any(y => y.SubModuleID == x.Id));
+                if (isSame == false) 
+                {
+                    //Print Value no the same (return value)
+                    return ("SubModule ID passed does not belong to the given Module ID");
+                }
+
+                try
+                {
+                    //  Update Parental Access restrictions.
+
+                    moduleValue.AccessRestriction = requestBody.parentRestrictions;
+                    roleModuleAccessControlRepository.Update(moduleValue);
+
+
+                    //  Update Sub Module Access restrictions.
+                    var roleSubModuleAccessControlRepository=uow.GetRepository<RoleSubModuleAccessControlRepository>();
+                    var subModuleList = roleSubModuleAccessControlRepository.Query(x => x.RoleId == roleId && expectedSubModuleList.Any(y => y.Id == x.SubModuleId));
+                    for(var i=0; i< expectedSubModuleCount; i++ )
+                    {
+                        subModuleList.ElementAt(i).AccessRestriction = requestBody.ListOfSubModules[i].AccessRestrictions;
+                        roleSubModuleAccessControlRepository.Update(subModuleList.ElementAt(i));
+                    }
+                    uow.Commit();
+
+                }
+                catch(Exception ex) 
+                {
+                    // Print error (return value);
+                    return ("Error when updating to database "+ex);
+                }
+
+                return ("Update Succesfully done");
+            }
+
+
         }
     }
 }

@@ -251,10 +251,6 @@ namespace TOnboardEMS.API.Controllers
         {
             Debug.WriteLine("Shuaib: RoleId - " + roleId + " ModuleId - " + ModuleId);
             var response = _roleModuleAccessControlBLL.GetSubModulesByModulePerRole(roleId,ModuleId);
-            Debug.WriteLine("Shuaib : Contents of Response: " + response);
-            Debug.WriteLine("Shuaib : Contents of Response: ParentID: " + response.parentID);
-            Debug.WriteLine("Shuaib : Contents of Response: ParentRestrictions: " + response.parentRestrictions);
-            Debug.WriteLine("Shuaib : Contents of Response: ListOfSubModules: " + response.ListOfSubModules[0].SubModuleID);
             if (response != null) 
             {
                 var json = new JavaScriptSerializer().Serialize(response);
@@ -265,6 +261,23 @@ namespace TOnboardEMS.API.Controllers
                 return BadRequest();
             }
         }
+
+        //Patch Update all Sub-module as per Module per User.
+        [HttpPatch()]
+        public IActionResult UpdateSubModuleAccessRestrictionsPerModule(int roleId, ResponseRoleSubModulePerModule requestBody)
+        {
+            if (requestBody != null)
+            {
+                var responseMessage = _roleModuleAccessControlBLL.UpdateSubModulesByModulePerRole(requestBody, roleId);
+                return Ok(responseMessage);
+            }
+            else 
+            { 
+               return BadRequest("Bad Request");
+            }
+        }
+
+        
 
 
     }
